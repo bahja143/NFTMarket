@@ -1,12 +1,5 @@
-import { StyleSheet, Text, View } from "react-native";
-import React from "react";
+import { View } from "react-native";
 
-export default function ComponentSeparator() {
-  return <View style={styles.container} />;
+export default function ComponentSeparator({ height = 14 }) {
+  return <View style={{ height: height }} />;
 }
-
-const styles = StyleSheet.create({
-  container: {
-    height: 14,
-  },
-});

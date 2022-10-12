@@ -5,11 +5,15 @@ import CustomText from "../component/CustomText";
 
 import LoveIcon from "../assets/icons/heart.png";
 import Etherium from "../assets/icons/eth.png";
+import LeftChevron from "../assets/icons/left.png";
 
-export default function Card({ nftItem, onPress }) {
+export default function DetailCard({ nftItem, onPress }) {
   return (
     <View style={Styles.container}>
       <View style={Styles.topButton}>
+        <TouchableOpacity style={Styles.topHeader} onPress={onPress}>
+          <Image source={LeftChevron} style={Styles.loveImage} />
+        </TouchableOpacity>
         <TouchableOpacity style={Styles.topHeader}>
           <Image source={LoveIcon} style={Styles.loveImage} />
         </TouchableOpacity>
@@ -38,27 +42,22 @@ export default function Card({ nftItem, onPress }) {
             </CustomText>
           </View>
         </View>
-        <View style={Styles.textContainer}>
-          <CustomText style={Styles.title} bold>
-            {nftItem.name}
-          </CustomText>
-          <CustomText style={Styles.subTitle} regular>
-            by {nftItem.creator}
-          </CustomText>
-        </View>
         <View style={Styles.bottomContainerSection}>
+          <View style={Styles.textContainer}>
+            <CustomText style={Styles.title} bold>
+              {nftItem.name}
+            </CustomText>
+            <CustomText style={Styles.subTitle} regular>
+              by {nftItem.creator}
+            </CustomText>
+          </View>
+
           <View style={Styles.priceContainer}>
             <Image source={Etherium} style={Styles.etherium} />
             <CustomText bold style={Styles.price}>
               {nftItem.price}
             </CustomText>
           </View>
-
-          <TouchableOpacity style={Styles.btn} onPress={onPress}>
-            <CustomText style={Styles.btnText} bold>
-              Place a bid
-            </CustomText>
-          </TouchableOpacity>
         </View>
       </View>
     </View>
@@ -69,7 +68,6 @@ const Styles = StyleSheet.create({
   container: {
     borderRadius: 15,
     overflow: "hidden",
-    elevation: 4,
   },
   topHeader: {
     backgroundColor: colors.white,
@@ -78,10 +76,7 @@ const Styles = StyleSheet.create({
     borderRadius: 25,
     justifyContent: "center",
     alignItems: "center",
-    position: "absolute",
     zIndex: 1,
-    top: 15,
-    right: 15,
   },
   loveImage: {
     width: "70%",
@@ -89,11 +84,15 @@ const Styles = StyleSheet.create({
   },
   topButton: {
     width: "100%",
-    alignItems: "flex-end",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    position: "absolute",
+    top: 25,
+    paddingHorizontal: 25,
   },
   bgImage: {
     width: "100%",
-    height: 225,
+    height: 350,
   },
   bottomContainer: {
     width: "100%",
@@ -102,8 +101,8 @@ const Styles = StyleSheet.create({
     paddingBottom: 10,
   },
   userPerson: {
-    width: 37.5,
-    height: 37.5,
+    width: 40,
+    height: 40,
   },
   userProfiles: {
     flexDirection: "row",
@@ -111,7 +110,7 @@ const Styles = StyleSheet.create({
   bottomTop: {
     flexDirection: "row",
     justifyContent: "space-between",
-    marginHorizontal: 15,
+    marginHorizontal: 12,
     top: -21,
   },
   leftBox: {
@@ -121,6 +120,7 @@ const Styles = StyleSheet.create({
     borderRadius: 10,
     elevation: 3,
     alignItems: "center",
+    top: -2,
   },
   leftBoxTitle: {
     color: colors.gray,
@@ -132,21 +132,19 @@ const Styles = StyleSheet.create({
   },
   title: {
     color: colors.primary,
-    fontSize: 17,
+    fontSize: 20,
   },
-  textContainer: {
-    top: -30,
-  },
+  textContainer: {},
   subTitle: {
     color: colors.gray,
-    fontSize: 13,
+    fontSize: 13.5,
   },
   bottomContainerSection: {
     width: "100%",
     flexDirection: "row",
     justifyContent: "space-between",
-    marginBottom: 3,
-    marginTop: -15,
+    paddingHorizontal: 9,
+    top: -11,
   },
   price: {
     fontSize: 12.5,
@@ -155,7 +153,7 @@ const Styles = StyleSheet.create({
   },
   priceContainer: {
     flexDirection: "row",
-    top: 3,
+    top: 10,
   },
   etherium: {
     width: 19,

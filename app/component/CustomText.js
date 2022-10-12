@@ -7,7 +7,15 @@ import {
   Inter_300Light,
 } from "@expo-google-fonts/inter";
 
-const CustomText = ({ children, light, bold, style }) => {
+const CustomText = ({
+  children,
+  light,
+  bold,
+  regular,
+  medium,
+  style,
+  ...props
+}) => {
   let [fontsLoaded] = useFonts({
     Inter_400Regular,
     Inter_500Medium,
@@ -22,8 +30,17 @@ const CustomText = ({ children, light, bold, style }) => {
   return (
     <View>
       <Text
+        {...props}
         style={{
-          fontFamily: light ? "Inter_300Light" : bold ? "Inter_700Bold" : "",
+          fontFamily: light
+            ? "Inter_300Light"
+            : bold
+            ? "Inter_700Bold"
+            : regular
+            ? "Inter_400Regular"
+            : medium
+            ? "Inter_500Medium"
+            : "",
           ...style,
         }}
       >

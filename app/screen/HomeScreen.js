@@ -11,13 +11,12 @@ import NavMenus from "../component/NavMenus";
 
 import { NFTData } from "../constants/dummy";
 
-export default function HomeScreen() {
+export default function HomeScreen({ navigation }) {
   const [isRefresh, setIsRefresh] = useState(false);
   const [data, setData] = useState([...NFTData]);
 
   return (
     <View style={Styles.container}>
-      <StatusBar backgroundColor={colors.primary} />
       <View style={Styles.bg} />
       <FlatList
         data={[1]}
@@ -37,7 +36,11 @@ export default function HomeScreen() {
             keyExtractor={(d) => d.id}
             renderItem={({ item }) => (
               <View style={Styles.cardContainer}>
-                <Card key={item.id} nftItem={item} />
+                <Card
+                  key={item.id}
+                  nftItem={item}
+                  onPress={() => navigation.navigate("detail", item)}
+                />
               </View>
             )}
             ListHeaderComponent={<HeaderHome />}

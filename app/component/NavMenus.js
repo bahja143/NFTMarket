@@ -19,7 +19,7 @@ export default function NavMenus() {
           >
             <AntDesign
               name={icon}
-              size={icon === selected ? 30 : 28}
+              size={25}
               color={selected === icon ? colors.white : colors.gray}
             />
           </TouchableOpacity>
@@ -33,7 +33,7 @@ const Styles = StyleSheet.create({
   main: {
     backgroundColor: "transparent",
     position: "absolute",
-    bottom: 40,
+    bottom: 25,
     alignSelf: "center",
   },
   container: {
@@ -42,8 +42,8 @@ const Styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
-    paddingVertical: 19,
-    paddingHorizontal: 12.5,
+    paddingVertical: 15,
+    paddingHorizontal: 12,
   },
   btn: {
     marginHorizontal: 12.5,

@@ -33,7 +33,7 @@ export default function HeaderHome() {
           </View>
         </View>
         <View style={Styles.subHeader}>
-          <CustomText style={Styles.name} light>
+          <CustomText style={Styles.name} regular>
             Hello, Victoria 👋
           </CustomText>
           <CustomText style={Styles.subTitle} bold>
@@ -42,7 +42,9 @@ export default function HeaderHome() {
         </View>
         <TouchableOpacity style={Styles.search}>
           <Image source={Search} style={Styles.searchIcon} />
-          <CustomText style={Styles.searchText}>Search NFTs</CustomText>
+          <CustomText style={Styles.searchText} regular>
+            Search NFTs
+          </CustomText>
         </TouchableOpacity>
       </View>
     </View>
@@ -58,7 +60,7 @@ const Styles = StyleSheet.create({
   name: {
     color: colors.gray,
     marginBottom: 5,
-    fontSize: 14.75,
+    fontSize: 14,
   },
   subTitle: {
     color: colors.white,
@@ -112,6 +114,6 @@ const Styles = StyleSheet.create({
   searchText: {
     color: "rgba(255,255,255, 0.55)",
     width: "100%",
-    fontSize: 15,
+    fontSize: 14,
   },
 });
